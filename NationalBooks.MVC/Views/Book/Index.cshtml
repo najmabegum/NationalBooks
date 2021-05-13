@@ -1,0 +1,61 @@
+﻿@model List<Book>
+@{ ViewData["Title"] = "Books!"; }
+
+<h2>Check out the awesome set of books:</h2>
+
+@*@for (int i = 0; i < Model.Count; i++)
+    {
+        if (i == 0)
+        {
+    @:<div class="row">
+    }
+    <form action="/Order/AddBookToOrderLine" id="AddBookToOrderLine@@@i">
+
+        <input type="hidden" value="@Model[i].Id" name="bookId" id="bookId" />
+        <div class="col-md-4">
+            <p>
+                <strong>@Model[i].Name</strong>
+            </p>
+            <p>
+                <img src="@Model[i].ImageUrl" alt="@Model[i].Name" width="120" height="150" />
+            </p>
+            <p>
+                € @Model[i].Price.ToString(CultureInfo.CurrentCulture) / piece
+            </p>
+            <p><button type="submit">Add to order</button></p>
+        </div>
+    </form> if (i % 2 == 0 && i > 0)
+                    {
+    @:</div>
+    @:<div class="row">
+    }
+    }*@
+
+@for (int i = 0; i < Model.Count; i++)
+{
+    if (i == 0)
+    {
+@:<div class="row">
+}
+<form style="width:30%;" action="/Order/AddBookToOrderLine" id="AddBookToOrderLine@@@i">
+
+    <input type="hidden" value="@Model[i].Id" name="bookId" id="bookId" />
+    
+        <p>
+            <strong>@Model[i].Name</strong>
+        </p>
+        <p>
+            <img src="@Model[i].ImageUrl" alt="@Model[i].Name" width="120" height="150" />
+        </p>
+        <p>
+            € @Model[i].Price.ToString(CultureInfo.CurrentCulture) / piece
+        </p>
+        <p><button type="submit">Add to order</button></p>
+    
+</form> if (i % 2 == 0 && i > 0)
+{
+@:</div>
+@:<div class="row">
+}
+}
+

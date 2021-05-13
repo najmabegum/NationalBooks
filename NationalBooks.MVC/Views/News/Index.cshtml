@@ -1,0 +1,50 @@
+﻿@model News
+
+@if (Model == null)
+{
+    <br />
+    <h2>No order was found.</h2>
+}
+else
+{
+    <br />
+    <h2>Details on Books for Sale</h2>
+    <br />
+    
+    <table class="table table-dark table-striped">
+        <tr>
+            <td>Name</td>
+            <td>Author</td>
+            <td>Sale Date</td>
+            <td>Discount %</td>
+        </tr>
+        @foreach (var book in Model.SaleBooks)
+        {
+            <tr>
+                <td>@book.BookName</td>
+                <td>@book.Author</td>
+                <td>@book.SaleFrom.ToShortDateString()</td>
+                <td>@book.Percentage</td>
+            </tr>
+        }
+    </table>
+    <br />
+
+    <h2>Details on New Arrivals</h2>
+    <br />
+
+    <table class="table table-dark table-striped">
+        <tr>
+            <td>Name</td>
+            <td>Author</td>
+            <td>Arrival Date</td>            
+        </tr>
+        @foreach (var bookNew in Model.NewArrivalBooks)
+        {
+    <tr>
+        <td>@bookNew.BookName</td>
+        <td>@bookNew.Author</td>
+        <td>@bookNew.AvailableFrom.ToShortDateString()</td>        
+    </tr>}
+    </table>
+}
