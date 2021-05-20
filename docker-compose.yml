@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  nationalbooks.mvc:
+    image: ${DOCKER_REGISTRY-}nationalbooksmvc
+    build:
+      context: .
+      dockerfile: NationalBooks.MVC/Dockerfile
+
+  nationalbooks.api:
+    image: ${DOCKER_REGISTRY-}nationalbooksapi
+    build:
+      context: .
+      dockerfile: NationalBooks.Api/Dockerfile
+

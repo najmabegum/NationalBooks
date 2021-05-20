@@ -14,8 +14,8 @@ namespace NationalBooks.MVC.Controllers
         {
             var client = new System.Net.Http.HttpClient();
             string jsonResult = string.Empty;
-            var request = new System.Net.Http.HttpRequestMessage();
-            request.RequestUri = new Uri("http://localhost:62720/api/NationalBooksNews/");
+            var request = new System.Net.Http.HttpRequestMessage();            
+            request.RequestUri = new Uri("http://nationalbooks.api/api/NationalBooksNews/");
             var response = await client.SendAsync(request);
             News news = new News();
             jsonResult =
